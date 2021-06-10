@@ -1,0 +1,44 @@
+﻿@model Locadora.Models.Filme
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar</h1>
+
+<h4>Filme</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="cd_filme" />
+            <div class="form-group">
+                <label class="control-label">Nome</label>
+                <input asp-for="ds_nome" class="form-control" />
+                <span asp-validation-for="ds_nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Data Criação</label>
+                <input asp-for="dt_criacao" class="form-control" />
+                <span asp-validation-for="dt_criacao" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="st_ativo" /> Ativo
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

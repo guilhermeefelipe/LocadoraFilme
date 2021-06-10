@@ -1,0 +1,36 @@
+﻿@model Locadora.Models.Filme
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Filme</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nome
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ds_nome)
+        </dd>
+        <dt class = "col-sm-2">
+            Data Criação
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dt_criacao)
+        </dd>
+        <dt class = "col-sm-2">
+            Ativo
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.st_ativo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.cd_filme">Editar</a> |
+    <a asp-action="Index">Voltar para Home</a>
+</div>

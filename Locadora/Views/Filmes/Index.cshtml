@@ -1,0 +1,61 @@
+﻿@model IList<Locadora.Models.Filme>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Lista de Filmes</h1>
+
+<p>
+    <a asp-action="Create">Novo Filme</a>
+</p>
+
+<form asp-action="DeleteFilmes" asp-controller="Filmes" method="post" />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <input type="checkbox" name="allcheck" id="selectAll /">
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Data Criação
+            </th>
+            <th>
+                Ativo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <tr>
+                <td>
+                    <input type="hidden" asp-for="@Model[i].ids.Value" />
+                    <input asp-for="@Model[i].ids.Selected" />
+                    <input type="hidden" asp-for="@Model[i].cd_filme" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].ds_nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].dt_criacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].st_ativo)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@Model[i].cd_filme">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@Model[i].cd_filme">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@Model[i].cd_filme">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <input type="submit" value="Deletar Selecionados" />
+</div>
+
