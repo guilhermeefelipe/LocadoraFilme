@@ -18,6 +18,7 @@ namespace Locadora.Models
         public DateTime dt_criacao { get; set; }
         public bool st_ativo { get; set; }
         public virtual List<Genero> Generos { get; set; }
-
+        [NotMapped]
+        public SelectListItem ids { get; set; }
     }
 }
